@@ -1,0 +1,87 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.about {
+  padding-bottom: 150px;
+}
+
+.skill {
+  margin-top: -130px;
+  border-radius: 20px;
+}
+
+.skill .card#writer {
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.skill .card#dev {
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .skill .card#writer {
+    border-bottom-left-radius: 20px;
+    margin-top: -15px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .skill .card#dev {
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+  }
+
+  nav a#contact {
+    text-align: center;
+  }
+}
+
+.overlay-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.overlay-blur {
+  backdrop-filter: blur(5px);
+}
+
+.overlay-fade:hover {
+  opacity: 0.5;
+}
+
+.project .card {
+  transition: border-color 1s, box-shadow 0.5s;
+}
+
+.project .card:hover {
+  border-color: rgb(13, 202, 240);
+  box-shadow: 0px 0px 10px 2px rgb(13, 202, 240, 0.5);
+}
+
+footer {
+  background-color: #0dcaf0;
+  padding-top: 100px;
+  margin-top: 100px;
+}
+
+.footer #para1 {
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+
+.contact {
+  margin-bottom: -210px;
+}
+
+.contact .card {
+  border-radius: 20px;
+}
