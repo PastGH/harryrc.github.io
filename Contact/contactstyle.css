@@ -1,2 +1,9 @@
-@media screen and (max-width: 768px) {
+footer {
+  background-color: #0dcaf0;
+  margin-top: 100px;
+}
+
+.footer #para1 {
+  margin-top: 50px;
+  margin-bottom: 0;
 }
