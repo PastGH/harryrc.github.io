@@ -80,8 +80,21 @@
     <!-- Header -->
 
     <!-- Forms -->
-    <form>
+    <form name="harry-portfolio-contact">
       <div class="container-fluid">
+        <div
+          class="alert alert-success alert-dismissible d-none form-alert fade show"
+          role="alert"
+        >
+          <strong>Thank you!</strong> Your message have been delivered, now just
+          sit back and wait for your reply!
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
         <div class="mb-4">
           <label for="exampleFormControlInput1" class="form-label">Name</label>
           <input
@@ -89,6 +102,7 @@
             class="form-control"
             id="exampleFormControlInput1"
             placeholder="Your name"
+            name="name"
           />
         </div>
         <div class="mb-4">
@@ -98,6 +112,7 @@
             class="form-control"
             id="exampleFormControlInput1"
             placeholder="name@example.com"
+            name="email"
           />
         </div>
         <div class="mb-3">
@@ -109,9 +124,22 @@
             id="exampleFormControlTextarea1"
             rows="3"
             placeholder="Put some details about the project and some message."
+            name="message"
           ></textarea>
         </div>
-        <button type="submit" class="btn btn-success">Send</button>
+        <button type="submit" class="btn btn-success btn-send">Send</button>
+        <button
+          class="btn btn-success btn-loading d-none"
+          type="button"
+          disabled
+        >
+          <span
+            class="spinner-grow spinner-grow-sm"
+            role="status"
+            aria-hidden="true"
+          ></span>
+          Loading...
+        </button>
       </div>
     </form>
     <!-- Forms -->
@@ -211,5 +239,41 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Form Script -->
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbzdzogKfRhZSj0rSwBT-J_XItCqHtuRWxQQiP6B10YRqwf1f5ZsJRZk8ng7FPnRrZS1Ew/exec";
+      const form = document.forms["harry-portfolio-contact"];
+      const btnSend = document.querySelector(".btn-send");
+      const btnLoading = document.querySelector(".btn-loading");
+      const formAlert = document.querySelector(".form-alert");
+
+      form.addEventListener("submit", (e) => {
+        // Loading
+        btnLoading.classList.toggle("d-none");
+        btnSend.classList.toggle("d-none");
+
+        //Alert
+        formAlert.classList.toggle("d-none");
+
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            //Remove Loading
+            btnLoading.classList.toggle("d-none");
+            btnSend.classList.toggle("d-none");
+
+            //Appear Alert
+            formAlert.classList.toggle("d-none");
+
+            //Reset Form
+            form.reset();
+
+            console.log("Success!", response);
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
   </body>
 </html>
