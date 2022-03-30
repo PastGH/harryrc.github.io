@@ -72,10 +72,14 @@
     <!-- Jumbotron -->
     <div class="container-fluid pt-5">
       <div class="header text-center">
-        <h1 class="mb-3">Hi there!</h1>
-        <h2 class="mb-3">Frontend Developer, Writer, Student</h2>
-        <p class="mb-5">I code simple things and I love what I do.</p>
-        <img src="img/pfp.jpeg" alt="profile" class="rounded-circle mb-5" />
+        <h1 class="mb-3 header1"></h1>
+        <h2 class="mb-3 header2"></h2>
+        <p class="mb-5 header3"></p>
+        <img
+          src="img/pfp.jpeg"
+          alt="profile"
+          class="rounded-circle mb-5 shadow-lg pfp"
+        />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
             fill="#ffffff"
@@ -365,5 +369,28 @@
 
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
+    <script>
+      gsap.to(".header1", { duration: 1.2, text: "Hi there!", ease: "none" });
+      gsap.to(".header2", {
+        duration: 1.3,
+        text: "Frontend Developer, Writer, Student",
+        ease: "none",
+      });
+      gsap.to(".header3", {
+        duration: 1.3,
+        text: "I code simple things and I love what I do.",
+        ease: "none",
+      });
+      gsap.from(".pfp", {
+        duration: 1.5,
+        rotateY: 360,
+        opacity: 0,
+      });
+      gsap.from(".navbar", {
+        duration: 1,
+        y: "-100%",
+      });
+    </script>
   </body>
 </html>
