@@ -50,6 +50,15 @@ html {
   transition: opacity 0.5s;
 }
 
+.overlay-fade h1 {
+  color: white;
+  padding-top: 70px;
+}
+
+.overlay-fade p {
+  color: white;
+}
+
 .overlay-blur {
   backdrop-filter: blur(5px);
 }
