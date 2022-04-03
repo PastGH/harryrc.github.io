@@ -48,11 +48,14 @@ html {
   background: black;
   opacity: 0;
   transition: opacity 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .overlay-fade h1 {
   color: white;
-  padding-top: 70px;
 }
 
 .overlay-fade p {
